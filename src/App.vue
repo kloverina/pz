@@ -1,87 +1,381 @@
+
 <template>
   <div id="app">
     <div class="header">
-      <img src="" alt="logo" />
       <div id="nav">
-        <router-link class="nav-link" to="/">Gallery</router-link>
-        <router-link class="nav-link" to="/statistics">Statistics</router-link>
+        <ul class="menu">
+          <div class="leftNav">
+            <li class="icon">
+              <router-link class="nav-link" to="/">
+                <span> P </span>
+                <span> Z </span>
+              </router-link>
+            </li>
+          </div>
 
+          <div class="rightNav">
+            <li class="rightNav__item description dropdown">
+               <span class="dropdown_button__toggleLabel">
+                   <a class="toggleLabel_header">
+                       <span class="toggleLabel_header__name">Описание</span>
+                   </a>
+               </span>
+
+              <div class="dropdown__submenu submenu">
+
+                <button class="submenu__button">
+                  <a>
+                    <span> Ввод с клавиатуры </span>
+                  </a>
+                </button>
+
+                <button class="submenu__button">
+                  <a>
+                    <span> Ввод из файла</span>
+                  </a>
+                </button>
+
+              </div>
+
+            </li>
+
+            <li class="rightNav__item">
+              <a > Редактирование</a>
+            </li>
+
+
+            <li class="rightNav__item directive dropdown">
+               <span class="dropdown_button__toggleLabel">
+                   <a class="toggleLabel_header" >
+                       <span class="toggleLabel_header__name">Директивы</span>
+                   </a>
+               </span>
+
+              <div class="dropdown__submenu submenu">
+
+                <button class="submenu__button">
+                  <a>
+                    <span> Вид частотной хар-ки </span>
+                  </a>
+                </button>
+
+                <button class="submenu__button">
+                  <a>
+                    <span> Входные-выходные узлы </span>
+                  </a>
+                </button>
+
+              </div>
+
+            </li>
+
+
+            <li class="rightNav__item view dropdown">
+               <span class="dropdown_button__toggleLabel">
+                   <a class="toggleLabel_header">
+                       <span class="toggleLabel_header__name">Вид</span>
+                   </a>
+               </span>
+
+              <div class="dropdown__submenu submenu">
+                <button class="submenu__button">
+                  <a> <span> Собсвенный браузер </span> </a>
+                </button>
+
+                <button class="submenu__button">
+                  <a> <span> Системный браузер </span> </a>
+                </button>
+
+              </div>
+
+            </li>
+
+            <li class="rightNav__item">
+              <a href="#bored"> Расчет </a>
+            </li>
+          </div>
+        </ul>
       </div>
     </div>
     <div class="content">
       <router-view />
     </div>
-    <div class="footer">Kloverina</div>
+
+    <div class="footer">
+      <div class="container">
+         <span>
+             &copy; 2021 -  <a href="https://github.com/kloverina">Kloverina - GitHub</a>
+         </span>
+      </div>
+  </div>
   </div>
 </template>
 
-<style lang="sass">
-*
-  padding: 0
-  margin: 0
-  box-sizing: border-box
+<style lang="scss">
 
-input, textarea, select
-  -webkit-appearance: none
-  border: none
-  outline: none
-  background: none
+  @import "stylesheets/header";
 
-button
-  border: none
-  outline: none
-  background: none
+  $content_bc: #9dcccd;
+  //$content_bc:  #f8d7da;
+  /*============ Styles ============*/
 
-#app
-  min-width: 1510px
+  body{
+    background-color: white;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    font-family: Segoe UI, sans-serif, Arial;
+    line-height: 30px;
+    color: #000000;
 
-.header
-  display: flex
-  justify-content: center
-  align-items: center
-  padding: 34px 142px 34px 142px
-  #nav
-    margin-left: calc(92px - 15px)
-    margin-right: auto
+  }
 
-.nav-link
-  text-decoration: none
-  margin-right: 33px
-  border-bottom: 2px solid transparent
-  font-family: Roboto
-  font-style: normal
-  font-weight: 500
-  font-size: 18px
-  line-height: 21px
-  color: #333333
-  padding: 2px 15px
-  &_no-pad-mar
-    padding: 2px 0px
-    margin-right: 0px
-    cursor: not-allowed
-    &:hover
-      border-bottom: 2px solid black
 
-.active
-  color: #2F80ED !important
-  border-bottom: 2px solid #2F80ED
+  .container{
+    // max-width: 100%;
+    max-width: 1180px;
+    padding: 0;
+    position: relative;
+    margin: 0 auto;
 
-.content
-  padding: 0px 142px 20px 142px
-  min-height: calc(100vh - 44px - 89px)
+  }
 
-.footer
-  height: 44px
-  display: flex
-  align-items: center
-  justify-content: center
-  background-color: #F2F2F2
-  font-family: Roboto
-  font-style: normal
-  font-weight: 500
-  font-size: 16px
-  line-height: 22px
-  letter-spacing: 0.005em
-  color: #000000
-  filter: drop-shadow(0px -2px 10px rgba(0, 0, 0, 0.25))
+  button {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    cursor: pointer;
+  }
+
+  footer{
+    background-color: black;
+    padding: 40px 10px;
+    text-align: right;
+    font-size: 18px;
+    color: white;
+  }
+
+  input, button{
+    border-radius: 5px;
+    vertical-align: middle;
+    width: 100%;
+  }
+  input{
+    border: none;
+    display: inline-block;
+
+    &:active, &:focus{
+      outline: none;
+    }
+  }
+
+
+  .content{
+    //background-color: #190726;
+    margin-top: 120px;
+
+    border-radius: 5px;
+    //padding: 10px 10px 20px;
+    h2{
+      margin-left: 40px;
+    }
+    margin-bottom: 50px;
+  }
+
+  .input-component{
+    background-color: $content_bc;
+    padding: 40px 20px;
+    color: black;
+    border-radius: 5px;
+    a, span {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      color: white;
+    }
+    .form-row{
+      //background-color: yellow;
+      //margin: 20px 0;
+      display: flex;
+      flex-direction: row;
+      align-content: stretch;
+      justify-content: space-between;
+      font-size: 18px;
+      line-height: 41px;
+    }
+
+    .column{
+      flex: 1 1 50%;
+      display: flex;
+      margin: 0 30px;
+      //background-color: darken($content_bc, 10%);
+      flex-direction: column;
+      justify-content: space-between;
+      align-content: stretch;
+
+
+
+      .component{
+        //margin: 0 30px;
+        flex: 1 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: flex-start;
+
+        &__name{
+          flex: 9 1 90%;
+          margin: 10px;
+          padding-left: 20px;
+        }
+
+        &__amount{
+          flex: 1 1 10%;
+          margin: 12px 12px 12px 20px;
+          max-width: 50px;
+          border-radius: 5px;
+          text-align: center;
+          //border: 1px solid inherit;
+
+        }
+
+        &:nth-of-type(2n-1){
+          background-color: darken($content_bc, 20%);
+          border-radius: 5px;
+        }
+      }
+
+      button{
+        width: 100%;
+        background-color: darken($content_bc, 10%);
+        padding: 10px;
+        margin-bottom: 0;
+        span{
+          color: inherit;
+          font-weight: bold;
+        }
+        &:hover, &:active{
+          background-color:darken($content_bc, 20%) ;
+        }
+
+      }
+    }
+
+    .form-part{
+      display: flex;
+      flex-direction: row-reverse;
+      //align-content: flex-start;
+      justify-content: flex-start;
+      margin-top: 20px;
+      .button{
+        flex: 0 1 25%;
+        background-color: #f1faee;
+        color: black;
+        max-width: 245px;
+        padding: 5px 0;
+
+        &:first-of-type{
+          background-color: #1d3557;
+          color: white;
+          margin-right: 25px;
+          margin-left: 15px;
+        }
+      }
+
+    }
+  }
+
+
+  div.flex{
+    background-color: $content_bc;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    justify-content: flex-start;
+
+    .form-card{
+      flex: 33%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-content: space-between;
+      margin: 20px;
+      //padding: 80px 30px 30px 30px;
+    }
+
+    .button{
+      margin-top: 10px;
+      background-color: #1d3557;
+      color: white;
+      padding: 3px;
+      span{
+        margin: 2px;
+      }
+    }
+
+    input{
+      background-color: white;
+      box-sizing: border-box;
+      padding: 10px 10px;
+
+    }
+  }
+  form.input-values{
+    margin: 5px;
+
+    padding: 80px 20px 20px 20px;
+    color: black ;
+    font-size: 18px;
+
+    span{
+      color: inherit;
+      font-size: inherit;
+    }
+    background-color:darken($content_bc, 20%);
+    border-radius: 5px;
+
+
+    h3{
+      padding-top: 20px;
+      position: absolute;
+      top: -65px;
+      left: 30px;
+      margin-bottom: 30px;
+      font-size: 68px;
+      line-height: normal;
+      font-family: KatyBerry, serif;
+    }
+
+
+  }
+
+
+
+  .form-card{
+    max-width: 350px !important;
+  }
+  .form-card.hidden{
+
+    display: none !important;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+
+
+
+
+
 </style>

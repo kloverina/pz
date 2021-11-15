@@ -3,7 +3,15 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
+
+
 const routes = [
+
+  {
+    path: '/',
+    name: 'PZ',
+    component: () => import('@/views/MainPage')
+  },
 
   {
     //не работает в случае, когда id в пути /edit/:id несущесвует

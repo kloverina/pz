@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import App from '@/App.vue'
 import router from '@/router/index.js'
+import styles from '../src/stylesheets/index.scss'
 
 Vue.config.productionTip = false
-import styles from '../src/stylesheets/_fonts.scss';
+
+
 
 new Vue({
   router,

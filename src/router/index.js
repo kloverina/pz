@@ -12,6 +12,16 @@ const routes = [
     name: 'PZ',
     component: () => import('@/views/MainPage')
   },
+  {
+    path: '/Edit',
+    name: 'Edit',
+    component: () => import('@/views/Edit')
+  },
+  {
+    path: '/Input',
+    name: 'Input',
+    component: () => import('@/views/Input')
+  },
 
   {
     //не работает в случае, когда id в пути /edit/:id несущесвует

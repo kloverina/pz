@@ -6,10 +6,14 @@
         v-bind:capacitor="CapAmount"
         v-bind:inductor="IndAmount"
         v-on:show-add-section="addCircuitParams"
+        v-if="!showAddSection"
     > </c1-circuit-params>
 
     <c2-circuit-add-section
-        v-show="showAddSection"
+        v-if="showAddSection"
+        v-bind:res-amount="ResAmount"
+        v-bind:cap-amount="CapAmount"
+        v-bind:ind-amount="IndAmount"
     > </c2-circuit-add-section>
 
 
@@ -47,7 +51,7 @@ export default {
       this.NodesAmount =  parseInt(values[0])
       this.ResAmount = parseInt(values[1])
       this.CapAmount = parseInt(values[2])
-      this.indAmount = parseInt(values[3])
+      this.IndAmount = parseInt(values[3])
       this.showAddSection = true
     }
   }

@@ -149,6 +149,7 @@ export default {
     }
   },
   methods: {
+
     onResistorAdded() {
       //текущий элемент - последний
       if (this.currentResNumber === this.resAmount) {

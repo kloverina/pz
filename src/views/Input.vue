@@ -35,7 +35,6 @@ export default {
       CapAmount: 0,
       IndAmount: 0,
       Resistors: [{
-        ResNumber: 0,
         PositiveNode: null,
         NegativeNode: null,
         Value: 0
@@ -53,6 +52,7 @@ export default {
       this.CapAmount = parseInt(values[2])
       this.IndAmount = parseInt(values[3])
       this.showAddSection = true
+      window.scrollTo(0,0);
     }
   }
 }

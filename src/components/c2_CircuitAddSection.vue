@@ -95,7 +95,7 @@
           </label>
           <label class="form-card__row">
             <span>Ёмкость</span>
-            <input name="capacity" type="number" min="0" step="0.001" placeholder="нФ" required
+            <input name="capacity" type="number" min="0" step="0.01" placeholder="нФ" required
                    v-model="capacitors[currentCapNumber-1].value"
             >
           </label>
@@ -112,6 +112,10 @@
 <script>
 export default {
   name: "c2-CircuitAddSection",
+  mounted() {
+    this.zeroQtyCheck()
+    this.getValues()
+  },
   props: {
     resAmount:{
       type: Number,
@@ -124,8 +128,12 @@ export default {
     indAmount:{
       type: Number,
       required: true
-    }
+    },
+    resValues: { type: Array },
+    capValues:{ type: Array },
+    indValues:{ type: Array }
   },
+
   data() {
     return {
       currentResNumber: 1,
@@ -149,6 +157,21 @@ export default {
     }
   },
   methods: {
+
+    zeroQtyCheck(){
+      if (this.resAmount === 0)
+        this.currentResNumber = -1
+      if (this.capAmount === 0)
+        this.currentCapNumber = -1
+      if (this.indAmount === 0)
+        this.currentIndNumber = -1
+    },
+
+    getValues(){
+      this.resistors = this.resValues
+      this.capacitors = this.capValues
+      this.inductors = this.indValues
+    },
 
     onResistorAdded() {
       //текущий элемент - последний
@@ -201,7 +224,7 @@ export default {
     },
     allElementsAdded(){
       if (this.currentCapNumber === -1 && this.currentIndNumber === -1 && this.currentResNumber === -1 ){
-        //save values
+        this.$emit('save-values', this.resistors, this.capacitors, this.inductors)
         this.$router.push('/')
       }
     }

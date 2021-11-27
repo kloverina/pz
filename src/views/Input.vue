@@ -14,6 +14,7 @@
         v-bind:res-amount="ResAmount"
         v-bind:cap-amount="CapAmount"
         v-bind:ind-amount="IndAmount"
+        v-on:save-values="addElemValues"
     > </c2-circuit-add-section>
 
 
@@ -34,11 +35,7 @@ export default {
       ResAmount: 0,
       CapAmount: 0,
       IndAmount: 0,
-      Resistors: [{
-        PositiveNode: null,
-        NegativeNode: null,
-        Value: 0
-      }],
+      Resistors: [],
       Capacitors: [],
       Inductors: []
 
@@ -53,6 +50,23 @@ export default {
       this.IndAmount = parseInt(values[3])
       this.showAddSection = true
       window.scrollTo(0,0);
+    },
+
+    addElemValues(res, cap, ind){
+      this.Resistors = res
+      this.Capacitors = cap
+      this.Inductors = ind
+      this.saveLocalData()
+    },
+
+    saveLocalData(){
+      localStorage.setItem('NodeAmount', this.NodesAmount);
+      localStorage.setItem('ResAmount', this.ResAmount);
+      localStorage.setItem('CapAmount', this.CapAmount);
+      localStorage.setItem('IndAmount', this.IndAmount);
+      localStorage.setItem('Resistors', JSON.stringify(this.Resistors));
+      localStorage.setItem('Capacitors', JSON.stringify(this.Capacitors));
+      localStorage.setItem('Inductors', JSON.stringify(this.Inductors));
     }
   }
 }

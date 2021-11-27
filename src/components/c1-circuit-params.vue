@@ -173,11 +173,11 @@ export default {
 
   methods: {
     getValues() {
-      let tmp = this
-      tmp.nodesAmount = tmp.node
-      tmp.resAmount = tmp.resistor
-      tmp.capAmount = tmp.capacitor
-      tmp.indAmount = tmp.inductor
+      console.log(this.node)
+      this.nodesAmount = this.node
+      this.resAmount = this.resistor
+      this.capAmount = this.capacitor
+      this.indAmount = this.inductor
     },
 
     showAddSection(){

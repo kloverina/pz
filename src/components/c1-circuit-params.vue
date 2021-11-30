@@ -173,7 +173,6 @@ export default {
 
   methods: {
     getValues() {
-      console.log(this.node)
       this.nodesAmount = this.node
       this.resAmount = this.resistor
       this.capAmount = this.capacitor

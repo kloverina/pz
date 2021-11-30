@@ -24,6 +24,12 @@ const routes = [
   },
 
   {
+    path: '/from-file',
+    name: 'Input from file',
+    component: () => import('@/views/FromFile')
+  },
+
+  {
     //не работает в случае, когда id в пути /edit/:id несущесвует
     path: '/*',
     name: 'Page Not Found',

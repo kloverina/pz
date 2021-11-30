@@ -129,9 +129,9 @@ export default {
       type: Number,
       required: true
     },
-    resValues: { type: Array },
-    capValues:{ type: Array },
-    indValues:{ type: Array }
+    resValues: { type: Array, required:false },
+    capValues:{ type: Array, required:false},
+    indValues:{ type: Array, required:false}
   },
 
   data() {
@@ -167,9 +167,12 @@ export default {
         this.currentIndNumber = -1
     },
 
-    getValues(){
-      this.resistors = this.resValues
-      this.capacitors = this.capValues
+   getValues(){
+      if (this.resValues)
+        this.resistors = this.resValues
+     if(this.capValues)
+        this.capacitors = this.capValues
+     if(this.indValues)
       this.inductors = this.indValues
     },
 

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h2> Операционные усилители </h2>
+    <h2 class="center">Операционные усилители </h2>
     <TABLE BORDER ="1"  ALIGN = "center"  WIDTH = "100%">
       <THEAD>    <!--Заголовок таблицы-->
 
@@ -99,9 +99,7 @@ export default {
 
 <style lang="scss">
 
-h2{
-  text-align: center
-}
+
 
 table{
   width: 100%;

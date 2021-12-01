@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h2> Биполярные транзисторы </h2>
+    <h2 class="center"> Биполярные транзисторы </h2>
 
     <TABLE>
       <THEAD>
@@ -119,7 +119,7 @@ export default {
 
 <style lang="scss">
 
-  h2, td{
+   td{
     text-align: center
   }
   table{

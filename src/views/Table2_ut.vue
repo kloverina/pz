@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h2>Униполярные транзисторы</h2>
+    <h2 class="center">Униполярные транзисторы</h2>
 
     <TABLE BORDER ="1"  ALIGN = "center"  WIDTH = "100%">
       <THEAD>    <!--Заголовок таблицы-->
@@ -109,8 +109,8 @@ export default {
 
 <style lang="scss">
 
-h2{
-  text-align: center
+h2.center{
+  text-align: center;
 }
 table{
   width: 100%;

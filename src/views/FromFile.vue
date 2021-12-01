@@ -106,18 +106,6 @@ export default {
     loadFromFile(){
       let temp = JSON.parse(this.data)
 
-      /*for (var key in temp) {
-        // этот код будет вызван для каждого свойства объекта
-        // ..и выведет имя свойства и его значение
-
-        console.log(temp['NodeAmount']);
-      }*/
-
-
-      console.log(temp['Resistors'])
-      console.log(JSON.stringify(temp['Resistors']))
-
-
       if (temp['NodeAmount'])
         localStorage.setItem('NodeAmount', temp['NodeAmount'])
       else{
@@ -159,7 +147,7 @@ export default {
     },
 
     saveDataToFile(){
-      let filename = 'test'
+      let filename = 'circuit-params-data'
       let data = {
         "NodeAmount": Number(localStorage.getItem('NodeAmount')),
         "ResAmount": Number(localStorage.getItem('ResAmount')),
@@ -170,7 +158,6 @@ export default {
         "Inductors": JSON.parse(localStorage.getItem('Inductors'))
       }
       let json = JSON.stringify(data, null, 2);
-      //console.log(json)
       let file = new Blob([json], {type: 'application/json'});
       if (window.navigator.msSaveOrOpenBlob) // IE10+
         window.navigator.msSaveOrOpenBlob(file, filename);
@@ -186,9 +173,6 @@ export default {
           window.URL.revokeObjectURL(url);
         }, 0);
       }
-
-
-
     }
 
 

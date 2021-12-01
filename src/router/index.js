@@ -30,6 +30,22 @@ const routes = [
   },
 
   {
+    path: '/table-bipolar-transistors',
+    name: 'Bipolar transistors',
+    component: () => import('@/views/Table_bt')
+  },
+  {
+    path: '/table-unipolar-transistors',
+    name: 'Unipolar transistors',
+    component: () => import('@/views/Table2_ut')
+  },
+  {
+    path: '/table-operational-amplifiers',
+    name: 'Operational amplifiers',
+    component: () => import('@/views/Table3_ob')
+  },
+
+  {
     //не работает в случае, когда id в пути /edit/:id несущесвует
     path: '/*',
     name: 'Page Not Found',

@@ -22,16 +22,24 @@
               {{(this.file === '') ? 'Файл не выбран' : this.file.name}}
             </div>
             <div class="field__file-button">Выбрать</div>
+            <div class="warning" v-if="warning">
+              <span> </span>
+              <p> Неправильный формат файла. Поддерживаемый формат: <i>json.</i> </p>
+            </div>
           </label>
+
         </div>
 
         <div class="button-wrapper">
-          <button class="submit-button" type="submit">
+          <button class="submit-button" type="submit"
+                  v-if="!warning"
+                  v-show="file !== ''"
+          >
             Подтвердить
           </button>
         </div>
       </form>
-      <p> {{message}}</p>
+      <p> {{ data }}</p>
     </div>
   </div>
 </template>
@@ -41,27 +49,81 @@ export default {
   name: "FromFile",
   data(){
     return {
-      message: 'oh',
-      file: ''
+      data: '',
+      file: '',
+      warning: false
     }
   },
   methods:{
     handleFileUpload: async function (e) {
-      let tpm = this.message
+      this.warning = false
       this.file = e.target.files[0]
+      if (this.file.type !== 'application/json') {
+        console.log('Неправильный формат файла. Поддерживаемый формат: .json.')
+        this.warning = true
+        return
+      }
       let reader = new FileReader();
 
       reader.readAsText(this.file);
-      var data;
-      var that = this;  //the important bit
-      reader.onloadend = await function () { // here we save variable 'file' in closure
-        data = reader.result
-        that.message = data;
+      let that = this;
+      reader.onloadend = await function () {
+        that.data = reader.result;
       }
-
-
     },
     loadFromFile(){
+      let temp = JSON.parse(this.data)
+
+      if (temp['NodeAmount'])
+        localStorage.setItem('NodeAmount', temp['NodeAmount'])
+      else{
+        console.log('Неправильные данные в файле. Количество узлов не может быть равно 0.')
+        return
+      }
+
+      if (temp['ResAmount'])
+        localStorage.setItem('ResAmount', temp['ResAmount'])
+      else
+        localStorage.setItem('ResAmount', '0')
+
+      if (temp['CapAmount'])
+        localStorage.setItem('CapAmount', temp['CapAmount'])
+      else
+        localStorage.setItem('CapAmount', '0')
+
+      if (temp['IndAmount'])
+        localStorage.setItem('IndAmount', temp['IndAmount'])
+      else
+        localStorage.setItem('IndAmount', '0')
+
+      if (temp['Resistors'])
+        localStorage.setItem('Resistors', temp['Resistors'])
+      else
+        localStorage.setItem('Resistors', "[{\"positiveNode\":null,\"negativeNode\":null,\"value\":null}]")
+
+      if (temp['Capacitors'])
+        localStorage.setItem('Capacitors', temp['Capacitors'])
+      else
+        localStorage.setItem('Capacitors', "[{\"positiveNode\":null,\"negativeNode\":null,\"value\":null}]")
+
+      if(temp['Inductors'])
+        localStorage.setItem('Inductors',temp['Inductors'])
+      else
+        localStorage.setItem('Inductors', "[{\"positiveNode\":null,\"negativeNode\":null,\"value\":null}]")
+
+
+      /*
+      localStorage.setItem('NodeAmount', this.NodesAmount);
+      localStorage.setItem('ResAmount', this.ResAmount);
+      localStorage.setItem('CapAmount', this.CapAmount);
+      localStorage.setItem('IndAmount', this.IndAmount);
+      localStorage.setItem('Resistors', this.Resistors);
+      localStorage.setItem('Capacitors', this.Capacitors);
+      localStorage.setItem('Inductors', this.Inductors);
+      * */
+    },
+
+    loadError(){
 
     }
   }
@@ -159,6 +221,26 @@ $content_bc: #9dcccd;
     justify-content: center;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
+  }
+
+
+  .warning{
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin: 15px 0 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    span{
+      width: 28px;
+      height: 28px;
+      background: url('../assets/images/icon-info.png') center no-repeat;
+      background-size: cover;
+      margin-left: 5px;
+      margin-right: 10px;
+    }
   }
 
 

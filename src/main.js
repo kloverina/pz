@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from '@/App.vue'
 import router from '@/router/index.js'
 import styles from '../src/stylesheets/index.scss'
+import fs from "fs";
 
 Vue.config.productionTip = false
 
@@ -15,3 +16,6 @@ new Vue({
   },
   render: (h) => h(App)
 }).$mount('#app')
+
+
+

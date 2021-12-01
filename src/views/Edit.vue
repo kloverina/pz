@@ -52,9 +52,14 @@ export default {
       this.ResAmount = Number(localStorage.getItem('ResAmount'))
       this.CapAmount = Number(localStorage.getItem('CapAmount'))
       this.IndAmount = Number(localStorage.getItem('IndAmount'))
-      this.Resistors = JSON.parse(localStorage.getItem('Resistors'))
-      this.Capacitors = JSON.parse(localStorage.getItem('Capacitors'))
-      this.Inductors = JSON.parse(localStorage.getItem('Inductors'))
+      try{
+        this.Resistors = JSON.parse(localStorage.getItem('Resistors'))
+        this.Capacitors = JSON.parse(localStorage.getItem('Capacitors'))
+        this.Inductors = JSON.parse(localStorage.getItem('Inductors'))
+      }
+      catch (e){
+        console.log(e)
+      }
 
     },
     addCircuitParams(values){

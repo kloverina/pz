@@ -31,7 +31,7 @@
 
                 <button class="submenu__button">
                   <router-link class="nav-link" to="/from-file">
-                    <span> Ввод из файла</span>
+                    <span> Из файла</span>
                   </router-link>
                 </button>
 

@@ -13,12 +13,12 @@
           <input type="number"  v-model:readonly="currentResNumber" readonly>
 
           <span>Узел n+</span>
-          <input name="positiveNode" type="number" min="1" max="10" required
+          <input name="positiveNode" type="number" min="0" max="10" required
                  v-model="resistors[currentResNumber-1].positiveNode"
           >
 
           <span>Узел n-</span>
-          <input name="negativeNode" type="number" min="1" max="10" required
+          <input name="negativeNode" type="number" min="0" max="10" required
                  v-model="resistors[currentResNumber-1].negativeNode"
           >
 
@@ -48,12 +48,12 @@
           >
 
           <span>Узел n+</span>
-          <input name="positiveNode" type="number" min="1" required
+          <input name="positiveNode" type="number" min="0" required
                  v-model="inductors[currentIndNumber-1].positiveNode"
           >
 
           <span>Узел n-</span>
-          <input name="negativeNode" type="number" min="1" required
+          <input name="negativeNode" type="number" min="0" required
                  v-model="inductors[currentIndNumber-1].negativeNode"
           >
 
@@ -83,13 +83,13 @@
           </label>
           <label class="form-card__row">
             <span>Узел n+</span>
-            <input name="positiveNode" type="number" min="1" required
+            <input name="positiveNode" type="number" min="0" required
                    v-model="capacitors[currentCapNumber-1].positiveNode"
             >
           </label>
           <label class="form-card__row">
             <span>Узел n-</span>
-            <input name="negativeNode" type="number" min="1" required
+            <input name="negativeNode" type="number" min="0" required
                    v-model="capacitors[currentCapNumber-1].negativeNode"
             >
           </label>

@@ -44,6 +44,16 @@ const routes = [
     name: 'Operational amplifiers',
     component: () => import('@/views/Table3_ob')
   },
+  {
+    path: '/frequency_response',
+    name: 'Frequency response',
+    component: () => import('@/views/FrequencyResponse')
+  },
+  {
+    path: '/nodes',
+    name: 'Nodes',
+    component: () => import('@/views/Input_OutputNodes')
+  },
 
   {
     //не работает в случае, когда id в пути /edit/:id несущесвует

@@ -15,7 +15,7 @@ export default {
   .main-pic{
     margin: 0;
     padding: 0;
-    min-height: 900px;
+    min-height: 500px;
     width: 100%;
     background: url("../assets/images/main-pic.jpg") no-repeat #740a80;
   }

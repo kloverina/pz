@@ -3,7 +3,7 @@
   <div id="app">
     <div class="header">
       <div id="nav">
-        <ul class="menu">
+        <ul class="menu" >
           <div class="leftNav">
             <li class="icon">
               <router-link class="nav-link" to="/">
@@ -56,15 +56,15 @@
               <div class="dropdown__submenu submenu">
 
                 <button class="submenu__button">
-                  <a>
+                  <router-link class="nav-link" to="/frequency_response">
                     <span> Вид частотной хар-ки </span>
-                  </a>
+                  </router-link>
                 </button>
 
                 <button class="submenu__button">
-                  <a>
+                  <router-link class="nav-link" to="/nodes">
                     <span> Входные-выходные узлы </span>
-                  </a>
+                  </router-link>
                 </button>
 
               </div>
@@ -123,6 +123,4 @@
   </div>
 </template>
 
-<style lang="scss">
 
-</style>

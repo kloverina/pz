@@ -175,6 +175,7 @@ $header_bc: #663587;
       display: none;
       line-height: normal;
       font-size: inherit;
+      border-radius: 5px;
 
       button:first-of-type{
         cursor: default;
@@ -187,7 +188,8 @@ $header_bc: #663587;
         margin-bottom: 15px;
       }
       a{
-        text-align: center;
+        text-align: justify-all;
+        font-size: 18px;
         //margin-left: 10px;
 
       }

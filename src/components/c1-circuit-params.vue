@@ -5,7 +5,7 @@
       <form class="input-component form" v-on:submit.prevent="showAddSection()">
         <div class="form-row">
           <div class="form-element column">
-            <div class="form-element form-element_component component" id="circuit__nodes-amount">
+            <div class="form-element form-element_component component">
               <p class="component__name">Количество узлов:</p>
               <input class="form-part__input component__amount"
                      v-model="nodesAmount"

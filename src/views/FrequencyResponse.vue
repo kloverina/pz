@@ -20,7 +20,8 @@
       <div class="form_block">
         <label class="label_space-between">
           <span> Значение частоты (кГц)  </span>
-          <input  class="text-input" type="number" v-model="inputValue" @click="inputValue = ' '">
+          <input  class="text-input" type="number" min="0" max="99"
+                  v-model="inputValue" @mouseenter="inputValue= null">
         </label>
       </div>
 
@@ -47,64 +48,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .form{
-    padding: 10px 100px;
-    font-size: 18px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: stretch;
-
-  }
-  .form_block{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    background: #9dcccd;
-    padding: 20px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-
-
-    label{
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: center;
-      span{
-        margin-left: 5px;
-        white-space: nowrap;
-        margin-right: 10px;
-      }
-    }
-
-    label.label_space-between{
-      justify-content: space-between;
-      width: 100%;
-      :nth-child(n){
-        flex: 0 1 40%;
-      }
-    }
-  }
-
-  input.radio{
-    width: 15px;
-    height: 15px;
-    padding: 5px;
-  }
-
-  input.text-input{
-    padding: 8px 15px 8px 5px;
-    text-align: right;
-  }
-
-  button{
-    background: #1D3557;
-    color: white;
-    padding: 5px 10px;
-    max-width: 300px;
-    align-self: center;
-  }
-
+  @import "src/stylesheets/directives";
 </style>

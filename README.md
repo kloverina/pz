@@ -1,5 +1,5 @@
 # PZ
-Web application for working with circuit and its parameters
+Web application on Vue.js for working with circuit and its parameters
 
 ## Project setup
 ``` 

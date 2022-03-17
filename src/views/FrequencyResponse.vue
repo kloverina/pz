@@ -17,11 +17,51 @@
         </label>
       </div>
 
-      <div class="form_block">
+      <div class="form_block" v-if="radioButtonValue === 'single-frequency'">
         <label class="label_space-between">
           <span> Значение частоты (кГц)  </span>
           <input  class="text-input" type="number" min="0" max="99"
-                  v-model="inputValue" @mouseenter="inputValue= null">
+                  v-model="f_min">
+        </label>
+      </div>
+
+      <div class="form_block" v-if="radioButtonValue === 'linear-frequency'">
+        <label class="label_space-between">
+          <span> Минимальная частота (кГц)  </span>
+          <input  class="text-input" type="number" min="0" max="99"
+                  v-model="f_min">
+        </label>
+
+        <label class="label_space-between">
+          <span> Максимальная (кГц)  </span>
+          <input  class="text-input" type="number" min="0" max="99"
+                  v-model="f_max">
+        </label>
+
+        <label class="label_space-between">
+          <span> Значение шага (df)  </span>
+          <input  class="text-input" type="number" min="0" max="99"
+                  v-model="df_k">
+        </label>
+      </div>
+
+      <div class="form_block" v-if="radioButtonValue === 'logarithmic-frequency'">
+        <label class="label_space-between">
+          <span> Минимальная частота (кГц)  </span>
+          <input  class="text-input" type="number" min="0" max="99"
+                  v-model="f_min">
+        </label>
+
+        <label class="label_space-between">
+          <span> Максимальная частота (кГц)  </span>
+          <input  class="text-input" type="number" min="0" max="99"
+                  v-model="f_max">
+        </label>
+
+        <label class="label_space-between">
+          <span> Отношение соседних частот К  </span>
+          <input  class="text-input" type="number" min="0" max="99"
+                  v-model="df_k">
         </label>
       </div>
 
@@ -41,7 +81,10 @@ export default {
   data() {
     return {
       radioButtonValue: 'single-frequency',
-      inputValue: 0
+      f_min: 0,
+      f_max: 0,
+      df_k: 0,
+
     }
   }
 }

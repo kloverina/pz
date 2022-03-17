@@ -56,6 +56,12 @@ const routes = [
   },
 
   {
+    path: '/calculate',
+    name: 'Calculate',
+    component: () => import('@/views/Calculate')
+  },
+
+  {
     //не работает в случае, когда id в пути /edit/:id несущесвует
     path: '/*',
     name: 'Page Not Found',

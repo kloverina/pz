@@ -103,7 +103,7 @@
             </li>
 
             <li class="rightNav__item">
-              <a href="#bored"> Расчет </a>
+              <router-link class="nav-link" to="/calculate"> Расчет </router-link>
             </li>
           </div>
         </ul>

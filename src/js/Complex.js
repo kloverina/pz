@@ -13,7 +13,7 @@ let Complex = function (real, imag) {
 
 Complex.parse = function(string) {
     let real, imag, regex, match, a, b, c;
-    
+
     regex = /^([-+]?(?:\d+|\d*\.\d+))?[-+]?(\d+|\d*\.\d+)?[ij]$/i;
     string = String(string).replace (/\s+/g, '');
 

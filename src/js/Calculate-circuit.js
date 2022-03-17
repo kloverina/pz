@@ -1,14 +1,11 @@
 "use strict";
 
-
-import {round} from "mathjs";
-
 const Complex = require('complex.js');
 export class CalculateCircuit {
-    nodeAmount
     #resistors
     #inductors
     #capacitors
+    nodeAmount
     W
     S
     constructor() {
@@ -24,30 +21,20 @@ export class CalculateCircuit {
             for (let l = 0; l <= 1; l++)
             {
                 i = nodes[l];
-
                 if (i == 0) continue
-
                 for (let m = 0; m <= 1; m++)
                 {
                     j = nodes[m];
-
                     if (j == 0) continue
 
                     g = (1 - 2 * l) * (1 - 2 * m);
 
                     if (type === 'res') {
-                        //this.W[i][j] += g / dipole.value;
-                        console.log(i, j, ': ', "W: ", this.W[i][j])
-                        console.log('G: ', Complex(g), g, ' ,value: ', Complex(dipole.value), dipole.value)
-
-
-                        let temp = Complex(g).div(Complex(dipole.value))
-                        //let temp = Complex(Complex(g).div(dipole.value))
-
-                        this.W[i][j] = Complex(this.W[i][j]).add(Complex(temp))
-                        console.log('Temp', temp, "W: ",  this.W[i][j])
-                        console.log("    ")
-
+                        //есть ли разница? проверить что нет ошибок в работе типов данных
+                        //let temp = Complex(g).div(Complex(dipole.value))
+                        //this.W[i][j] = Complex(this.W[i][j]).add(Complex(temp))
+                        let temp = g / dipole.value
+                        this.W[i][j] += temp
                     }
                     else if (type === 'cap')
                         this.W[i][j] += g * s * dipole.value;
@@ -83,18 +70,5 @@ export class CalculateCircuit {
                 this.W[i][j] = Math.round(parseFloat(this.W[i][j]) * 1000) / 1000
             }
         }
-
-
-    }
-
-
-
-
-
-    quadraticRoot(a, b, c) {
-        let sqrt = Complex(b * b - 4 * a * c).sqrt()
-        let x1 = Complex(-b).add(sqrt).div(2 * a)
-        let x2 = Complex(-b).sub(sqrt).div(2 * a)
-        return {x1, x2}
     }
 }

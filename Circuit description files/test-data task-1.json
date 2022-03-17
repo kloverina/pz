@@ -1,0 +1,37 @@
+{
+  "NodeAmount": 3,
+  "ResAmount": 3,
+  "CapAmount": 0,
+  "IndAmount": 0,
+  "Resistors": [
+    {
+      "positiveNode": "1",
+      "negativeNode": "3",
+      "value": "10"
+    },
+    {
+      "positiveNode": "2",
+      "negativeNode": "3",
+      "value": "10"
+    },
+    {
+      "positiveNode": "3",
+      "negativeNode": "0",
+      "value": "10"
+    }
+  ],
+  "Capacitors": [
+    {
+      "positiveNode": null,
+      "negativeNode": null,
+      "value": null
+    }
+  ],
+  "Inductors": [
+    {
+      "positiveNode": null,
+      "negativeNode": null,
+      "value": null
+    }
+  ]
+}

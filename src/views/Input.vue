@@ -38,7 +38,6 @@ export default {
       Resistors: [],
       Capacitors: [],
       Inductors: []
-
     }
   },
 

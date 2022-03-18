@@ -144,6 +144,13 @@ export default {
       else
         localStorage.setItem('Inductors', "[{\"positiveNode\":null,\"negativeNode\":null,\"value\":null}]")
 
+      if(temp['frequency'])
+        localStorage.setItem('frequency', JSON.stringify(temp['frequency']))
+      else
+        localStorage.setItem('frequency', "{\"frequency\":\"none\"}")
+
+      this.$router.push('/')
+
     },
 
     saveDataToFile(){
@@ -155,7 +162,8 @@ export default {
         "IndAmount": Number(localStorage.getItem('IndAmount')),
         "Resistors": JSON.parse(localStorage.getItem('Resistors')),
         "Capacitors": JSON.parse(localStorage.getItem('Capacitors')),
-        "Inductors": JSON.parse(localStorage.getItem('Inductors'))
+        "Inductors": JSON.parse(localStorage.getItem('Inductors')),
+        "frequency": JSON.parse(localStorage.getItem('frequency'))
       }
       let json = JSON.stringify(data, null, 2);
       let file = new Blob([json], {type: 'application/json'});
@@ -173,6 +181,7 @@ export default {
           window.URL.revokeObjectURL(url);
         }, 0);
       }
+      this.$router.push('/')
     }
 
 

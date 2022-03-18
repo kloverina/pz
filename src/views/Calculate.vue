@@ -16,7 +16,18 @@
            </div>
           </div>
         </div>
+
+        <div  v-if="showAnswer" class="column column_left">
+          S =
+        </div>
+        <div  v-if="showAnswer" class="column column_right">
+          <div class="elem" v-for="S_obj in S">
+            {{S_obj}}
+          </div>
+        </div>
       </div>
+
+
     </div>
   </div>
 </template>
@@ -30,6 +41,7 @@ export default {
   data() {
     return {
       W: [],
+      S: {},
       column_qty: 4,
       showAnswer: false
     }
@@ -41,7 +53,10 @@ export default {
     loadData(){
       let calculate = new CalculateCircuit()
       calculate.GetData()
+      this.column_qty = calculate.nodeAmount + 1
       this.W = calculate.W
+      this.S = calculate.S
+
     }
   }
 }

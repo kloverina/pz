@@ -36,6 +36,7 @@
 
 import {CalculateCircuit} from '@/js/Calculate-circuit';
 
+
 export default {
   name: "Calculate",
   data() {
@@ -50,6 +51,9 @@ export default {
 
   },
   methods:{
+    showS(){
+      return (this.showAnswer && this.S.length > 0);
+    },
     loadData(){
       let calculate = new CalculateCircuit()
       calculate.GetData()

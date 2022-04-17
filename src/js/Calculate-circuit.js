@@ -20,8 +20,6 @@ export class CalculateCircuit {
         for(let index in dipoles){
             let dipole = dipoles[index]
             let nodes =  [dipole.positiveNode, dipole.negativeNode]
-            console.log(dipoles)
-            console.log(nodes)
 
             for (let l = 0; l <= 1; l++) {
 
@@ -46,7 +44,6 @@ export class CalculateCircuit {
                         this.W[i][j] = Complex(this.W[i][j]).add(temp)
 
                     }
-
 
                     else {
                         let temp = Complex(g).div(s).mul(dipole.value)
@@ -77,7 +74,6 @@ export class CalculateCircuit {
         for(let i =0; i< this.nodeAmount + 1; i++) {
           for (let j = 0; j < this.nodeAmount + 1; j++) {
               this.W[i][j] = new Complex(0, 0)
-              //this.W[i][j] = 0
           }
         }
 
@@ -108,17 +104,13 @@ export class CalculateCircuit {
         switch (frequency.frequency) {
             case 'single':
             {
-                console.log('single:')
                 let frequencyValue = frequency.f_min
                 let s = this.CalculateTransformCharacteristic(frequencyValue)
                 vector.push(s)
                 break
             }
             case 'linear':{
-                console.log('linear:')
-
                 let frequencyValue = frequency.f_min;
-
                 while (frequencyValue <= frequency.f_max)
                 {
                     vector.push(this.CalculateTransformCharacteristic(frequencyValue))
@@ -127,9 +119,7 @@ export class CalculateCircuit {
                 break
             }
             case 'logarithmic':{
-                console.log('logarithmic:')
                 let frequencyValue = frequency.f_min;
-
                 while (frequencyValue <= frequency.f_max)
                 {
                     vector.push(this.CalculateTransformCharacteristic(frequencyValue))
@@ -139,8 +129,6 @@ export class CalculateCircuit {
             }
 
         }
-
-
         this.S = vector
     }
 
@@ -149,17 +137,15 @@ export class CalculateCircuit {
     }
 
     RoundFinalAnswer(){
+
         for(let i =0; i< this.nodeAmount + 1; i++) {
             for (let j = 0; j < this.nodeAmount + 1; j++) {
-                //this.W[i][j] = Math.round(parseFloat(this.W[i][j]) * 1000) / 1000
-                //this.W[i][j].im = +this.W[i][j].im.toFixed(3)
-                //this.W[i][j].re = +this.W[i][j].re.toFixed(3)
+                this.W[i][j].im = +this.W[i][j].im.toFixed(3)
+                this.W[i][j].re = +this.W[i][j].re.toFixed(3)
             }
         }
 
-
         for (let i = 0; i < this.S.length; i++) {
-            console.log(this.S[i])
             this.S[i].im = +this.S[i].im.toFixed(3)
             this.S[i].re = +this.S[i].re.toFixed(3)
         }

@@ -149,6 +149,37 @@ export default {
       else
         localStorage.setItem('frequency', "{\"frequency\":\"none\"}")
 
+      //EU, JU, TRI, OU
+      if (temp['JUAmount'])
+        localStorage.setItem('JUAmount', temp['JUAmount'])
+      else
+        localStorage.setItem('JUAmount', '0')
+
+      if (temp['EUAmount'])
+        localStorage.setItem('EUAmount', temp['EUAmount'])
+      else
+        localStorage.setItem('EUAmount', '0')
+
+      if (temp['TRIAmount'])
+        localStorage.setItem('TRIAmount', temp['TRIAmount'])
+      else
+        localStorage.setItem('TRIAmount', '0')
+
+      if(temp['JU'])
+        localStorage.setItem('JU', JSON.stringify(temp['JU']))
+      else
+        localStorage.setItem('JU', "[]")
+
+      if(temp['EU'])
+        localStorage.setItem('EU', JSON.stringify(temp['EU']))
+      else
+        localStorage.setItem('EU', "[]")
+
+      if(temp['TRI'])
+        localStorage.setItem('TRI', JSON.stringify(temp['TRI']))
+      else
+        localStorage.setItem('TRI', "[]")
+
       this.$router.push('/')
 
     },

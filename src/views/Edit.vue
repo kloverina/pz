@@ -83,9 +83,9 @@ export default {
       localStorage.setItem('ResAmount', this.ResAmount);
       localStorage.setItem('CapAmount', this.CapAmount);
       localStorage.setItem('IndAmount', this.IndAmount);
-      localStorage.setItem('Resistors', this.Resistors);
-      localStorage.setItem('Capacitors', this.Capacitors);
-      localStorage.setItem('Inductors', this.Inductors);
+      localStorage.setItem('Resistors', JSON.stringify(this.Resistors));
+      localStorage.setItem('Capacitors', JSON.stringify(this.Capacitors));
+      localStorage.setItem('Inductors', JSON.stringify(this.Inductors));
     }
   }
 }

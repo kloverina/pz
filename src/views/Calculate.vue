@@ -20,7 +20,7 @@
         <div  v-if="showAnswer" class="column column_left">
           S =
         </div>
-        <div  v-if="showAnswer" class="column column_right">
+        <div  v-if="showAnswer" class="column column_right column_s">
           <div class="elem" v-for="S_obj in S">
             {{S_obj}}
           </div>

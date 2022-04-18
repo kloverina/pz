@@ -45,6 +45,17 @@ $color: #9dcdae;
     border-right: 1px solid black;
     border-left: 1px solid  black;
   }
+
+  &_s{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+
+    &:nth-child(n){
+      padding: 2px 10px;
+    }
+  }
 }
 
 .row{
@@ -56,6 +67,5 @@ $color: #9dcdae;
 
   .elem{
     margin: 0 10px;
-
   }
 }

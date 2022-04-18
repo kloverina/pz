@@ -180,6 +180,16 @@ export default {
       else
         localStorage.setItem('TRI', "[]")
 
+      if (temp['OYAmount'])
+        localStorage.setItem('OYAmount', temp['OYAmount'])
+      else
+        localStorage.setItem('OYAmount', '0')
+
+      if(temp['OY'])
+        localStorage.setItem('OY', JSON.stringify(temp['OY']))
+      else
+        localStorage.setItem('OY', "[]")
+
       this.$router.push('/')
 
     },

@@ -1,0 +1,74 @@
+{
+  "NodeAmount": 3,
+  "ResAmount": 3,
+  "CapAmount": 0,
+  "IndAmount": 0,
+  "Resistors": [
+    {
+      "positiveNode": "1",
+      "negativeNode": "3",
+      "value": "1"
+    },
+    {
+      "positiveNode": "2",
+      "negativeNode": "3",
+      "value": "1"
+    },
+    {
+      "positiveNode": "3",
+      "negativeNode": "0",
+      "value": "1"
+    }
+  ],
+  "Capacitors": [
+    {
+      "positiveNode": null,
+      "negativeNode": null,
+      "value": null
+    }
+  ],
+  "Inductors": [
+    {
+      "positiveNode": null,
+      "negativeNode": null,
+      "value": null
+    }
+  ],
+
+  "frequency": {
+    "frequency": "linear",
+    "f_min": "0.1",
+    "f_max": "0.2",
+    "df_k": "0.02"
+  },
+
+  "JUAmount": 1,
+  "JU": [
+    {
+    "nodes": [1, 0, 2, 0],
+    "values":{
+      "y": 10,
+      "T1": 0,
+      "T2": 1
+      }
+    }
+  ],
+  "EUAmount": 1,
+  "EU":[
+    {
+    "nodes": [2, 0, 3, 0],
+    "values": {
+      "y": 100,
+      "T1": 0,
+      "T2": 1
+    }
+  }
+  ],
+  "TRIAmount": 1,
+  "TRI": [
+    {
+    "nodes": [3, 4, 0, 0],
+    "n": 2
+    }
+  ]
+}

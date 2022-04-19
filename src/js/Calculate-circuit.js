@@ -8,6 +8,7 @@ export class CalculateCircuit {
     #capacitors
     #frequency
     nodeAmount
+    new_nodeAmount
     #ju
     #eu
     #tri
@@ -31,6 +32,26 @@ export class CalculateCircuit {
         this.#tri =  JSON.parse(localStorage.TRI)
         this.#oy =  JSON.parse(localStorage.OY)
 
+    }
+
+    ExpandMatrix(){
+        let temp = Array.from(Array(this.new_nodeAmount+1), () => new Array(this.new_nodeAmount+1));
+
+
+        for(let i =0; i< this.new_nodeAmount + 1; i++) {
+            for (let j = 0; j < this.new_nodeAmount + 1; j++) {
+                temp[i][j] = new Complex(0, 0)
+            }
+        }
+
+        for(let i =0; i< this.nodeAmount + 1; i++) {
+            for (let j = 0; j < this.nodeAmount + 1; j++) {
+                temp[i][j] = this.W[i][j]
+            }
+        }
+
+        this.W = temp
+        this.nodeAmount = this.new_nodeAmount
     }
 
     FormFrequencyMatrixFromNodes(dipoles, s, type){
@@ -137,8 +158,10 @@ export class CalculateCircuit {
                 }
             }
         }
-        /*if (s === this.S[this.S.length - 1])
-         this.nodeAmount += this.#eu.length*/
+        if (s === this.S[this.S.length - 1]) {
+            this.new_nodeAmount = this.nodeAmount + this.#eu.length
+            this.ExpandMatrix()
+        }
     }
 
     FormTRI(){
@@ -161,6 +184,10 @@ export class CalculateCircuit {
                 }
             }
         }
+
+        this.new_nodeAmount = this.nodeAmount + this.#tri.length
+        this.ExpandMatrix()
+
     }
 
     FormOY(s){
@@ -295,7 +322,7 @@ export class CalculateCircuit {
 
                     vector.push(this.CalculateTransformCharacteristic(frequencyValue))
                     frequencyValue = +(frequencyValue + Number(frequency.df_k)).toFixed(3);
-                    //frequencyValue = 1000
+
                 }
                 break
             }
@@ -305,7 +332,7 @@ export class CalculateCircuit {
                 while (frequencyValue <= Number(frequency.f_min))
                 {
                     vector.push(this.CalculateTransformCharacteristic(frequencyValue))
-                    frequencyValue = +(frequencyValue + Number(frequency.df_k)).toFixed(3);
+                    frequencyValue = +(frequencyValue * Number(frequency.df_k)).toFixed(3);
                 }
                 break
             }
